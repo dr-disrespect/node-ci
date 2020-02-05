@@ -6,3 +6,8 @@ const keys = require('../config/keys');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, { useMongoClient: true });
+
+afterAll(async () => {
+  console.log("called ultimate after all")
+  await mongoose.disconnect()
+})
